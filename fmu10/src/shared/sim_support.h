@@ -38,16 +38,23 @@
 
 #else /* __APPLE__ */
 // Linux
+#ifdef __linux__
 #ifdef __x86_64
 #define DLL_DIR   "binaries/linux64/"
 #else
+#ifdef __arm__
+#define DLL_DIR   "binaries/linux-armv7l/"
+#else
 // It may be necessary to compile with -m32, see ../Makefile
 #define DLL_DIR   "binaries/linux32/"
-#endif /*__x86_64*/
+#endif /* __arm__*/
+#endif /* __x86_64 */
+#endif /* __linux */
 #define DLL_SUFFIX ".so"
 
 #endif /* __APPLE__ */
 #endif /* WINDOWS */
+
 
 // return codes of the 7z command line tool
 #define SEVEN_ZIP_NO_ERROR 0 // success

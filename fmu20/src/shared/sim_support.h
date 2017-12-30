@@ -38,12 +38,18 @@
 
 #else /* __APPLE__ */
 // Linux
+#ifdef __linux__
 #ifdef __x86_64
 #define DLL_DIR   "binaries/linux64/"
 #else
+#ifdef __arm__
+#define DLL_DIR   "binaries/linux-armv7l/"
+#else
 // It may be necessary to compile with -m32, see ../Makefile
 #define DLL_DIR   "binaries/linux32/"
+#endif /* __arm__*/
 #endif /* __x86_64 */
+#endif /* __linux */
 #define DLL_SUFFIX ".so"
 #endif /* __APPLE__ */
 #endif /* WINDOWS */

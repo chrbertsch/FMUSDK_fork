@@ -43,6 +43,7 @@ case "`uname -m`" in
      *64)      bits=64;;
      *32)      bits=32;;
      *i[3-6]86) bits=32;;
+     *)         bits=-"`uname -m| tr "[:upper:]" "[:lower:]"`";;
 esac
 
 # Uncomment the next line to force building 32-bit
