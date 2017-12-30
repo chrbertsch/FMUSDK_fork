@@ -49,7 +49,8 @@ all:
 	rm -rf fmu
 	mkdir -p fmu/binaries/$(ARCH) fmu/sources fmu/documentation
 	cp $< fmu/binaries/$(ARCH)
-	-cp *.c *.h fmu/sources
+	-cp *.c fmu/sources
+	rsync -av --ignore-missing-args ./*.h ./fmu/sources
 	-cp *.html *.png fmu/documentation
 	cp modelDescription_$(CSORME).xml fmu/modelDescription.xml
 	cp model.png fmu
